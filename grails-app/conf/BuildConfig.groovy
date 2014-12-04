@@ -1,19 +1,32 @@
 grails.project.work.dir = 'target'
 grails.project.source.level = 1.6
 grails.project.docs.output.dir = 'docs/manual' // for backwards-compatibility, the docs are checked into gh-pages branch
+grails.project.repos.default = "megusta"
 
 grails.project.dependency.resolution = {
 
 	inherits 'global'
 	log 'warn'
 
-	repositories {
+/*	repositories {
 		grailsCentral()
 		mavenLocal()
 		mavenCentral()
-	}
+	}*/
+    repositories {
+        inherits true
 
-	dependencies {
+        grailsPlugins()
+        grailsHome()
+        mavenLocal()
+        grailsCentral()
+        mavenCentral()
+
+        mavenRepo "http://megusta.artifactoryonline.com/megusta/plugins-releases-local"
+    }
+
+
+    dependencies {
 		compile('com.atomikos:atomikos-util:3.8.0') {
 			excludes 'servlet-api', 'slf4j-api', 'junit', 'log4j', 'mockito-all', 'geronimo-jta_1.0.1B_spec'
 		}
@@ -43,14 +56,16 @@ grails.project.dependency.resolution = {
 		compile('org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1') {
 			excludes 'mockobjects-core', 'mockobjects-jdk1.4-j2ee1.3', 'junit', 'logging-config'
 		}
+        compile 'org.springframework:spring-jms:4.0.6.RELEASE'
 	}
 
 	plugins {
-		compile(":hibernate:$grailsVersion") {
+		compile(":hibernate4:4.3.6.1") {
 			export = false
 		}
+        build(":release:3.0.1"){ export = false}
 
-		build(':release:2.0.4', ':rest-client-builder:1.0.2') {
+		build(':rest-client-builder:2.0.3') {
 			export = false
 		}
 	}

@@ -24,8 +24,8 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor
 import org.springframework.beans.factory.support.GenericBeanDefinition
 
-import com.atomikos.icatch.jta.hibernate3.AtomikosJTATransactionFactory
-import com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup
+
+import com.chat.hibernate4.transactions.TransactionManagerLookup
 import com.atomikos.jdbc.AtomikosDataSourceBean
 
 /**
@@ -102,7 +102,7 @@ class AtomikosBeanPostProcessor implements BeanDefinitionRegistryPostProcessor {
 		}
 
 		Map props = registry.getBeanDefinition(propertiesName).propertyValues.propertyValueList[0].value
-		props['hibernate.transaction.factory_class'] = AtomikosJTATransactionFactory.name
+		//props['hibernate.transaction.factory_class'] = AtomikosJTATransactionFactory.name
 		props['hibernate.transaction.manager_lookup_class'] = TransactionManagerLookup.name
 
 		registry.removeBeanDefinition propertiesName

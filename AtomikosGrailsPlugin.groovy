@@ -16,8 +16,8 @@
 import grails.plugin.atomikos.AtomikosBeanPostProcessor
 import grails.plugin.atomikos.UserTransactionServiceProperties
 
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+//import org.slf4j.Logger
+//import org.slf4j.LoggerFactory
 import org.springframework.jms.core.JmsTemplate
 import org.springframework.jms.listener.DefaultMessageListenerContainer
 import org.springframework.transaction.jta.JtaTransactionManager
@@ -29,11 +29,11 @@ import com.atomikos.icatch.standalone.UserTransactionServiceFactory
 
 class AtomikosGrailsPlugin {
 
-	private Logger log = LoggerFactory.getLogger('grails.plugin.atomikos.AtomikosGrailsPlugin')
+	//private Logger log = LoggerFactory.getLogger('grails.plugin.atomikos.AtomikosGrailsPlugin')
 
-	String version = '1.0'
+	String version = '2.0'
 	String grailsVersion = '2.0 > *'	
-	String author = 'Burt Beckwith'
+	String author = 'Burt Beckwith, megusta'
 	String authorEmail = 'beckwithb@vmware.com'
 	String title = 'Atomikos JTA/XA Plugin'
 	String description = 'Integrates Atomikos TransactionsEssentials to support two-phase commit for JDBC and JMS transactions'

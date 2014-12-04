@@ -4,3 +4,9 @@ stacktrace.log
 /grails-atomikos-*.zip
 /plugin.xml
 /.settings
+*.iml
+/.idea
+/target-eclipse
+/.classpath
+/.project
+/bin
